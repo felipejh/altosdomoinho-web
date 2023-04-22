@@ -1,4 +1,4 @@
-export interface ShowResident {
+export interface ListResident {
   id: string
   name: string
   apt: number
@@ -7,3 +7,5 @@ export interface ShowResident {
   created_at: string
   updated_at: string
 }
+
+export type ShowResident = ListResident

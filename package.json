@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.1",
     "ra-data-simple-rest": "^4.9.3",
     "ra-language-pt-br": "^1.3.6",
     "react": "^18.2.0",
