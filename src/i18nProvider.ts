@@ -1,7 +1,7 @@
 import ptBrMessages from 'ra-language-pt-br'
 import polyglotI18nProvider from 'ra-i18n-polyglot'
 
-const messages = {
+const messages: any = {
   'pt-br': ptBrMessages,
 }
 
