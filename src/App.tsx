@@ -8,7 +8,7 @@ import {
 } from './resources/residents'
 import ResidentsShow from './resources/residents/residents-show'
 
-const dataProvider = simpleRestProvider('http://localhost:3333')
+const dataProvider = simpleRestProvider(import.meta.env.VITE_API_URL)
 
 const App = () => (
   <Admin i18nProvider={i18nProvider} dataProvider={dataProvider}>
