@@ -7,11 +7,21 @@ import {
   ResidentsList,
 } from './resources/residents'
 import ResidentsShow from './resources/residents/residents-show'
+import { authProvider } from './config/providers/auth-provider'
+import httpClient from './services/http/httpClient'
+import httpClientSimpleRestAdapter from './services/http/http-client-simple-rest-adapter'
 
-const dataProvider = simpleRestProvider(import.meta.env.VITE_API_URL)
+const dataProvider = simpleRestProvider(
+  import.meta.env.VITE_API_URL,
+  httpClientSimpleRestAdapter(httpClient),
+)
 
 const App = () => (
-  <Admin i18nProvider={i18nProvider} dataProvider={dataProvider}>
+  <Admin
+    i18nProvider={i18nProvider}
+    dataProvider={dataProvider}
+    authProvider={authProvider}
+  >
     <Resource
       name="residents"
       list={ResidentsList}
