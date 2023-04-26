@@ -34,8 +34,6 @@ const filters = [
 const ResidentsList = (): ReactElement => {
   const isSmall = useMediaQuery((theme: any) => theme.breakpoints.down('sm'))
 
-  console.log(isSmall)
-
   return (
     <List
       filters={filters}

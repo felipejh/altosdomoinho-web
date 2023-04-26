@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios'
 import httpClient, { api } from '../../../services/http/httpClient'
 
 interface LoginParams {
@@ -44,7 +45,8 @@ export const authProvider = {
     return Promise.resolve()
   },
   // called when the API returns an error
-  checkError: ({ status }: { status: number }) => {
+  checkError: (error: AxiosError) => {
+    const { status } = error.response || {}
     if (status === 401 || status === 403) {
       localStorage.removeItem('name')
       localStorage.removeItem('username')
