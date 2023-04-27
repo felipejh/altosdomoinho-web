@@ -10,8 +10,8 @@ import {
   TextInput,
 } from 'react-admin'
 import { useMediaQuery } from '@mui/material'
-import { CustomDateField } from '../../components'
 import { ListResident } from '../../models/residents'
+import { PhoneField } from '../../components'
 
 const formatLicensePlate = (value: string): string | undefined => {
   if (value) {
@@ -73,8 +73,7 @@ const ResidentsList = (): ReactElement => {
           <TextField label="Nome" source="name" />
           <TextField label="Apartamento" source="apt" />
           <TextField label="Torre" source="tower" />
-          <CustomDateField label="Criado em" source="created_at" showTime />
-          <CustomDateField label="Atualizado em" source="updated_at" showTime />
+          <PhoneField label="Telefone" source="phone_number" />
           <ShowButton />
           <EditButton />
         </Datagrid>
