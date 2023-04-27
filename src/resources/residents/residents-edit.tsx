@@ -8,6 +8,10 @@ import {
   regex,
   required,
 } from 'react-admin'
+import {
+  isValidLandlinePhone,
+  isValidMobilePhone,
+} from '@brazilian-utils/brazilian-utils'
 
 const validateLicensePlate = [
   regex(/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/, 'Formato da placa inválido'),
@@ -20,6 +24,14 @@ const formatLicensePlate = (value: string): string | undefined => {
 }
 
 const validateApt = [regex(/^[0-9]{3}$/, 'Apartamento inválido'), required()]
+
+const validatePhone = (value: string): string | undefined => {
+  if (!isValidLandlinePhone(value) && !isValidMobilePhone(value)) {
+    return 'Número inválido.'
+  }
+}
+
+const validatePhoneInputs = [required(), validatePhone]
 
 const ResidentsEdit = (): ReactElement => (
   <Edit>
@@ -50,6 +62,17 @@ const ResidentsEdit = (): ReactElement => (
           { id: 'Vêneto', name: 'Vêneto' },
         ]}
         variant="outlined"
+      />
+      <TextInput
+        label="Telefone"
+        source="phone_number"
+        validate={validatePhoneInputs}
+        variant="outlined"
+        fullWidth
+        format={(value?: string) =>
+          value?.replace(/^(\d{2})(\d{4})(\d{4})/g, '($1) $2-$3')
+        }
+        parse={(value?: string) => value?.replace(/\D/g, '')}
       />
       <Grid container item spacing={2}>
         <Grid item>

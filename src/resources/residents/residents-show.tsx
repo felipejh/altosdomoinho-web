@@ -6,7 +6,7 @@ import {
   useRecordContext,
 } from 'react-admin'
 import { ShowResident } from '../../models/residents'
-import { CustomDateField } from '../../components'
+import { CustomDateField, PhoneField } from '../../components'
 
 const ResidentsShowTitle = (): ReactElement => {
   const record = useRecordContext<ShowResident>()
@@ -26,6 +26,7 @@ const ResidentsShow = (): ReactElement => (
       <TextField label="Nome" source="name" />
       <TextField label="Apartamento" source="apt" />
       <TextField label="Torre" source="tower" />
+      <PhoneField label="Telefone" source="phone_number" />
       <TextField label="Veículo" source="vehicle_model" />
       <TextField label="Placa" source="vehicle_license_plate" />
       <TextField label="Observações" source="obs" />
