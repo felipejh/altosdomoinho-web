@@ -63,9 +63,7 @@ const ResidentsList = (): ReactElement => {
         <SimpleList<ListResident>
           primaryText={(record) => record.name}
           secondaryText={(record) => `${record.apt} - ${record.tower}`}
-          // tertiaryText={(record) =>
-          //   new Date(record.created_at).toLocaleDateString()
-          // }
+          tertiaryText={(record) => record.phone_number}
           linkType="show"
         />
       ) : (
