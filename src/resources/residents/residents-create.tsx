@@ -2,7 +2,6 @@ import { Grid } from '@mui/material'
 import { ReactElement } from 'react'
 import {
   Create,
-  NumberInput,
   SelectInput,
   SimpleForm,
   TextInput,
@@ -20,6 +19,8 @@ const formatLicensePlate = (value: string): string | undefined => {
   }
 }
 
+const validateApt = [regex(/^[0-9]{3}$/, 'Apartamento inválido'), required()]
+
 const ResidentsCreate = (): ReactElement => (
   <Create>
     <SimpleForm>
@@ -29,11 +30,11 @@ const ResidentsCreate = (): ReactElement => (
         variant="outlined"
         validate={required()}
       />
-      <NumberInput
+      <TextInput
         label="Apartamento"
         source="apt"
         variant="outlined"
-        validate={required()}
+        validate={validateApt}
       />
       <SelectInput
         label="Torre"
