@@ -3,7 +3,10 @@ export interface ListResident {
   name: string
   apt: number
   tower: string
+  phone_number: string | undefined
   obs: string
+  vehicle_model: string | undefined
+  vehicle_license_plate: string | undefined
   created_at: string
   updated_at: string
 }

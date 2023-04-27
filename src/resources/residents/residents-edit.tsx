@@ -31,7 +31,7 @@ const validatePhone = (value: string): string | undefined => {
   }
 }
 
-const validatePhoneInputs = [required(), validatePhone]
+const validatePhoneInputs = [validatePhone]
 
 const ResidentsEdit = (): ReactElement => (
   <Edit>
