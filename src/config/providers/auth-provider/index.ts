@@ -42,7 +42,7 @@ export const authProvider = {
   logout: () => {
     localStorage.removeItem('name')
     localStorage.removeItem('username')
-    localStorage.RemoveItem('token')
+    localStorage.removeItem('token')
     return Promise.resolve()
   },
   // called when the API returns an error
@@ -51,7 +51,7 @@ export const authProvider = {
     if (status === 401 || status === 403) {
       localStorage.removeItem('name')
       localStorage.removeItem('username')
-      localStorage.RemoveItem('token')
+      localStorage.removeItem('token')
       return Promise.reject()
     }
     return Promise.resolve()
