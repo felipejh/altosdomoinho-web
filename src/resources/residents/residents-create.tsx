@@ -40,34 +40,40 @@ const ResidentsCreate = (): ReactElement => (
         label="Nome"
         source="name"
         variant="outlined"
+        fullWidth
         validate={required()}
       />
-      <TextInput
-        label="Apartamento"
-        source="apt"
-        variant="outlined"
-        validate={validateApt}
-      />
-      <SelectInput
-        label="Torre"
-        source="tower"
-        alwaysOn
-        validate={required()}
-        choices={[
-          {
-            id: 'Toscana',
-            name: 'Toscana',
-          },
-          { id: 'Vêneto', name: 'Vêneto' },
-        ]}
-        variant="outlined"
-      />
+      <Grid container item spacing={2}>
+        <Grid item>
+          <TextInput
+            label="Apartamento"
+            source="apt"
+            variant="outlined"
+            validate={validateApt}
+          />
+        </Grid>
+        <Grid item>
+          <SelectInput
+            label="Torre"
+            source="tower"
+            alwaysOn
+            validate={required()}
+            choices={[
+              {
+                id: 'Toscana',
+                name: 'Toscana',
+              },
+              { id: 'Vêneto', name: 'Vêneto' },
+            ]}
+            variant="outlined"
+          />
+        </Grid>
+      </Grid>
       <TextInput
         label="Telefone"
         source="phone_number"
         validate={validatePhoneInputs}
         variant="outlined"
-        fullWidth
         format={(value?: string) =>
           value?.replace(/^(\d{2})(\d{4})(\d{4})/g, '($1) $2-$3')
         }
