@@ -1,5 +1,5 @@
 import { AxiosError } from 'axios'
-import httpClient, { api } from '../../../services/http/httpClient'
+import httpClient from '../../../services/http/httpClient'
 
 interface LoginParams {
   username: string
@@ -34,14 +34,15 @@ export const authProvider = {
 
     localStorage.setItem('name', name)
     localStorage.setItem('username', email)
+    localStorage.setItem('token', json.token)
 
-    api.defaults.headers.Authorization = `Bearer ${json.token}`
     return Promise.resolve()
   },
   // called when the user clicks on the logout button
   logout: () => {
     localStorage.removeItem('name')
     localStorage.removeItem('username')
+    localStorage.RemoveItem('token')
     return Promise.resolve()
   },
   // called when the API returns an error
@@ -50,6 +51,7 @@ export const authProvider = {
     if (status === 401 || status === 403) {
       localStorage.removeItem('name')
       localStorage.removeItem('username')
+      localStorage.RemoveItem('token')
       return Promise.reject()
     }
     return Promise.resolve()

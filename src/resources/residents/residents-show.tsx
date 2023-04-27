@@ -26,6 +26,8 @@ const ResidentsShow = (): ReactElement => (
       <TextField label="Nome" source="name" />
       <TextField label="Apartamento" source="apt" />
       <TextField label="Torre" source="tower" />
+      <TextField label="Veículo" source="vehicle_model" />
+      <TextField label="Placa" source="vehicle_license_plate" />
       <TextField label="Observações" source="obs" />
       <CustomDateField label="Criado em" source="created_at" showTime />
       <CustomDateField label="Atualizado em" source="updated_at" showTime />

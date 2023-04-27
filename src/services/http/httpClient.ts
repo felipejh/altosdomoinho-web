@@ -40,7 +40,7 @@ const httpClient = <T = any>(
 ): Promise<HttpClientResponse<T>> => {
   const baseUrl = axiosRequestConfig?.baseURL || import.meta.env.VITE_API_URL
 
-  const token = api.defaults.headers.Authorization
+  const token = localStorage.getItem('token')
 
   return api
     .request<T>({
@@ -48,7 +48,7 @@ const httpClient = <T = any>(
       url,
       baseURL: baseUrl,
       headers: {
-        Authorization: token,
+        Authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
         ...axiosRequestConfig?.headers,
       },

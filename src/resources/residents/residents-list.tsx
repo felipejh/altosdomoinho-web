@@ -13,6 +13,12 @@ import { useMediaQuery } from '@mui/material'
 import { CustomDateField } from '../../components'
 import { ListResident } from '../../models/residents'
 
+const formatLicensePlate = (value: string): string | undefined => {
+  if (value) {
+    return value.toLocaleUpperCase()
+  }
+}
+
 const filters = [
   <TextInput label="Morador" source="name" alwaysOn variant="outlined" />,
   <TextInput label="Apartamento" source="apt" alwaysOn variant="outlined" />,
@@ -28,6 +34,19 @@ const filters = [
       { id: 'Vêneto', name: 'Vêneto' },
     ]}
     variant="outlined"
+  />,
+  <TextInput
+    label="Veículo"
+    source="vehicle_model"
+    variant="outlined"
+    alwaysOn
+  />,
+  <TextInput
+    label="Placa"
+    source="vehicle_license_plate"
+    variant="outlined"
+    format={formatLicensePlate}
+    alwaysOn
   />,
 ]
 
