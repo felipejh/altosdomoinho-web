@@ -5,6 +5,7 @@ import {
   SelectInput,
   SimpleForm,
   TextInput,
+  TopToolbar,
   regex,
   required,
 } from 'react-admin'
@@ -12,6 +13,7 @@ import {
   isValidLandlinePhone,
   isValidMobilePhone,
 } from '@brazilian-utils/brazilian-utils'
+import BackButton from '../../components/buttons/back-button'
 
 const validateLicensePlate = [
   regex(/[A-Z]{3}[0-9][0-9A-Z][0-9]{2}/, 'Formato da placa inválido'),
@@ -33,8 +35,16 @@ const validatePhone = (value: string): string | undefined => {
 
 const validatePhoneInputs = [validatePhone]
 
+const ResidentsCreateActions = (): ReactElement => (
+  <TopToolbar>
+    <Grid container>
+      <BackButton />
+    </Grid>
+  </TopToolbar>
+)
+
 const ResidentsCreate = (): ReactElement => (
-  <Create>
+  <Create actions={<ResidentsCreateActions />}>
     <SimpleForm>
       <TextInput
         label="Nome"
