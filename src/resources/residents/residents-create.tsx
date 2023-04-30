@@ -28,7 +28,7 @@ const formatLicensePlate = (value: string): string | undefined => {
 const validateApt = [regex(/^[0-9]{3}$/, 'Apartamento inválido'), required()]
 
 const validatePhone = (value: string): string | undefined => {
-  if (!isValidLandlinePhone(value) && !isValidMobilePhone(value)) {
+  if (value && !isValidLandlinePhone(value) && !isValidMobilePhone(value)) {
     return 'Número inválido.'
   }
 }
