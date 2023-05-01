@@ -46,21 +46,10 @@ const ResidentsEditActions = (): ReactElement => (
 const ResidentsEdit = (): ReactElement => (
   <Edit actions={<ResidentsEditActions />}>
     <SimpleForm>
-      <TextInput
-        label="Nome"
-        source="name"
-        variant="outlined"
-        fullWidth
-        validate={required()}
-      />
+      <TextInput label="Nome" source="name" fullWidth validate={required()} />
       <Grid container item spacing={2}>
         <Grid item>
-          <TextInput
-            label="Apartamento"
-            source="apt"
-            variant="outlined"
-            validate={validateApt}
-          />
+          <TextInput label="Apartamento" source="apt" validate={validateApt} />
         </Grid>
         <Grid item>
           <SelectInput
@@ -75,7 +64,6 @@ const ResidentsEdit = (): ReactElement => (
               },
               { id: 'Vêneto', name: 'Vêneto' },
             ]}
-            variant="outlined"
           />
         </Grid>
       </Grid>
@@ -83,7 +71,6 @@ const ResidentsEdit = (): ReactElement => (
         label="Telefone"
         source="phone_number"
         validate={validatePhoneInputs}
-        variant="outlined"
         format={(value?: string) =>
           value?.replace(/^(\d{2})(\d{4})(\d{4})/g, '($1) $2-$3')
         }
@@ -91,29 +78,18 @@ const ResidentsEdit = (): ReactElement => (
       />
       <Grid container item spacing={2}>
         <Grid item>
-          <TextInput
-            label="Veículo"
-            source="vehicle_model"
-            variant="outlined"
-          />
+          <TextInput label="Veículo" source="vehicle_model" />
         </Grid>
         <Grid item>
           <TextInput
             label="Placa"
             source="vehicle_license_plate"
-            variant="outlined"
             validate={validateLicensePlate}
             format={formatLicensePlate}
           />
         </Grid>
       </Grid>
-      <TextInput
-        label="Observações"
-        source="obs"
-        variant="outlined"
-        fullWidth
-        multiline
-      />
+      <TextInput label="Observações" source="obs" fullWidth multiline />
     </SimpleForm>
   </Edit>
 )
