@@ -20,8 +20,8 @@ const formatLicensePlate = (value: string): string | undefined => {
 }
 
 const filters = [
-  <TextInput label="Morador" source="name" alwaysOn variant="outlined" />,
-  <TextInput label="Apartamento" source="apt" alwaysOn variant="outlined" />,
+  <TextInput label="Morador" source="name" alwaysOn />,
+  <TextInput label="Apartamento" source="apt" alwaysOn />,
   <SelectInput
     label="Torre"
     source="tower"
@@ -33,18 +33,11 @@ const filters = [
       },
       { id: 'Vêneto', name: 'Vêneto' },
     ]}
-    variant="outlined"
   />,
-  <TextInput
-    label="Veículo"
-    source="vehicle_model"
-    variant="outlined"
-    alwaysOn
-  />,
+  <TextInput label="Veículo" source="vehicle_model" alwaysOn />,
   <TextInput
     label="Placa"
     source="vehicle_license_plate"
-    variant="outlined"
     format={formatLicensePlate}
     alwaysOn
   />,

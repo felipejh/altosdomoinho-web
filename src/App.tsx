@@ -10,6 +10,7 @@ import ResidentsShow from './resources/residents/residents-show'
 import { authProvider } from './config/providers/auth-provider'
 import httpClient from './services/http/httpClient'
 import httpClientSimpleRestAdapter from './services/http/http-client-simple-rest-adapter'
+import theme from './config/theme/custom-mui-theme'
 
 const dataProvider = simpleRestProvider(
   import.meta.env.VITE_API_URL,
@@ -21,6 +22,7 @@ const App = () => (
     i18nProvider={i18nProvider}
     dataProvider={dataProvider}
     authProvider={authProvider}
+    theme={theme}
   >
     <Resource
       name="residents"
