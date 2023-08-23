@@ -11,6 +11,7 @@ import { authProvider } from './config/providers/auth-provider'
 import httpClient from './services/http/httpClient'
 import httpClientSimpleRestAdapter from './services/http/http-client-simple-rest-adapter'
 import theme from './config/theme/custom-mui-theme'
+import { People as ResidentsIcon } from '@mui/icons-material'
 
 const dataProvider = simpleRestProvider(
   import.meta.env.VITE_API_URL,
@@ -31,6 +32,7 @@ const App = () => (
       edit={ResidentsEdit}
       create={ResidentsCreate}
       options={{ label: 'Moradores' }}
+      icon={ResidentsIcon}
     />
   </Admin>
 )
